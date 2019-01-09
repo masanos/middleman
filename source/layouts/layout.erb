@@ -6,11 +6,23 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title><%= current_page.data.title || "Middleman" %></title>
+    <title><%= current_page.data.title || "Site Name" %></title>
+    <%= partial("modules/css") %>
     <%= stylesheet_link_tag "site" %>
-    <%= javascript_include_tag "site" %>
   </head>
   <body>
-    <%= yield %>
+    <div class="d-flex flex-column">
+      <div id="header">
+        <%= partial("modules/header") %>
+      </div>
+      <div id="body" class="flex-grow-1 container-fluid">
+        <%= yield %>
+      </div>
+      <div id="footer" class="">
+        <%= partial("modules/footer") %>
+      </div>
+    </div>
+    <%= partial("modules/script") %>
+    <%= javascript_include_tag "site" %>
   </body>
 </html>

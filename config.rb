@@ -13,6 +13,8 @@ page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
 
+
+
 # With alternative layout
 # page '/path/to/file.html', layout: 'other_layout'
 
@@ -40,7 +42,21 @@ page '/*.txt', layout: false
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
 
-# configure :build do
-#   activate :minify_css
-#   activate :minify_javascript
-# end
+# build option
+configure :build do
+  activate :minify_css
+  activate :minify_javascript
+end
+
+##### customize #####
+# directory name
+set :build_dir, 'docs'
+set :css_dir, 'css'
+set :js_dir, 'js'
+set :images_dir, 'img'
+
+# Use livereload mode
+configure :development do
+ activate :livereload,
+  :host => 'localhost'
+end
